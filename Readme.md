@@ -3,6 +3,14 @@
 ## Overview
 This project processes **AWS VPC Flow Logs** and matches them against a predefined **lookup table** to categorize traffic based on **destination port and protocol**. 
 
+## Repo structure
+- parser.py → Main script that processes the flow log and lookup table.
+- test_parser.py → unit tests for parser
+- flowlog.txt → Sample input AWS flow log file.
+- lookup_table.csv → Mapping of destination ports & protocols to tags.
+- protocol-numbers.csv → Official IANA protocol mappings (e.g., 6 → tcp).
+- README.md → Project documentation.
+
 ## Features
 - Reads AWS VPC Flow Logs from a **text file**.
 - Parses a **lookup table** (CSV file) to map **destination port & protocol** combinations to specific tags.
@@ -40,13 +48,6 @@ Output.txt follows the format of including
 ```
 python3 test_parser.py
 ```
-
-## Repo structure
-- analyze.py → Main script that processes the flow log and lookup table.
-- flowlog.txt → Sample input AWS flow log file.
-- lookup_table.csv → Mapping of destination ports & protocols to tags.
-- protocol-numbers.csv → Official IANA protocol mappings (e.g., 6 → tcp).
-- README.md → Project documentation.
 
 ## Assumptions made in implementation
 1. This log analyzer only support version 2 of AWS VPC Flow Log. 
